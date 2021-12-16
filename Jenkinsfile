@@ -1,9 +1,9 @@
 pipeline {
 
     environment {
-        IMAGE_NAME = "static-webpage-example"
+        IMAGE_NAME = "static-website-example"
         USERNAME = "itirenegag"
-        CONTAINER_NAME = "static-webpage-example"
+        CONTAINER_NAME = "static-website-example"
         EC2_PRODUCTION_HOST = "3.82.205.200"
 		    EC2_STAGING_HOST = "34.227.162.39"
     }
@@ -40,7 +40,7 @@ pipeline {
            steps {
                script{
                    sh '''
-                       curl http://localhost:5000 | grep -iq "Dimension Fahim"
+                       curl http://localhost:5000 | grep -iq "Dimension"
                    '''
                }
            }

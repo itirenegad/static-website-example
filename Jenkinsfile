@@ -1,11 +1,11 @@
 pipeline {
 
     environment {
-        IMAGE_NAME = "static-website-example"
         USERNAME = "itirenegag"
-        CONTAINER_NAME = "static-website-example"
+        IMAGE_NAME = "static-website-example"
+        CONTAINER_NAME = "static-website-container"
         EC2_PRODUCTION_HOST = "3.82.205.200"
-		    EC2_STAGING_HOST = "34.227.162.39"
+		EC2_STAGING_HOST = "34.227.162.39"
     }
 
     agent none
@@ -64,13 +64,13 @@ pipeline {
            }
        }
 
-        stage('Deploy app on EC2-cloud Staging') {
+        stage('Deploy app on ec2-cloud Staging') {
         agent any
         when{
             expression{ GIT_BRANCH == 'origin/master'}
         }
         steps{
-            withCredentials([sshUserPrivateKey(credentialsId: "ec2_prod_private_key", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
+            withCredentials([sshUserPrivateKey(credentialsId: "ec2_staging_private_key", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script{ 
                             sh'''
@@ -85,7 +85,7 @@ pipeline {
         }
 
 
-        stage('Deploy app on EC2-cloud Production') {
+        stage('Deploy app on ec2-cloud Production') {
         agent any
         when{
             expression{ GIT_BRANCH == 'origin/master'}

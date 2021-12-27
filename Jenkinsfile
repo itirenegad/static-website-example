@@ -4,7 +4,7 @@ pipeline {
         USERNAME = "itirenegag"
         IMAGE_NAME = "static-website-example"
         CONTAINER_NAME = "static-website-container"
-        EC2_PRODUCTION_HOST = "34.227.162.39"
+        EC2_PRODUCTION_HOST = "54.82.85.85"
     }
 
     agent none

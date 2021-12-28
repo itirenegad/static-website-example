@@ -66,7 +66,7 @@ pipeline {
            }
        }
 
-        stage('Deploy app on ec2-Production') {
+        stage('Deploy app on ec2-Prod') {
         agent any
         when{
             expression{ GIT_BRANCH == 'origin/master'}

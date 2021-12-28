@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-        USERNAME = "itirenegag"
+        USERNAME = "itirenegad"
         IMAGE_NAME = "static-website-example"
         CONTAINER_NAME = "static-website-container"
         EC2_PRODUCTION_HOST = "54.82.85.85"
